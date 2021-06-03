@@ -3,18 +3,26 @@
   "version": "1.0.0",
   "description": "",
   "dependencies": {
+    "concurrently": "^6.2.0",
     "express": "^4.17.1",
     "mongodb": "^3.6.9",
+    "mongodb-client-encryption": "^1.2.4",
     "nodemon": "^2.0.7",
-    "socket.io": "^4.1.2"
+    "socket.io": "^4.1.2",
+    "ts-loader": "^9.2.2",
+    "typescript": "^4.3.2",
+    "utf-8-validate": "^5.0.5",
+    "webpack": "^5.38.1"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "@types/mongodb": "^3.6.17",
+    "webpack-cli": "^4.7.0"
+  },
   "scripts": {
     "build": "tsc",
-    "watch-ts": "npx webpack --mode development --watch --config ./config/webpack.config.js",
     "watch-server": "npx webpack --mode development --watch --config ./config/webpack.server.config.js",
-    "watch-node": "nodemon ./server/app.js ",
-    "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript, Node\" -c \"yello.bold, cyan.bold\" \"npm run watch-ts\" \"npm run watch-server\" \"npm run watch-node\""
+    "watch-node": "nodemon ./dist/app.js ",
+    "watch": "concurrently -k -p \"[{name}]\" -n \"TypeScript, Node\" -c \"yello.bold, cyan.bold\"  \"npm run watch-server\" \"npm run watch-node\""
   },
   "repository": {
     "type": "git",
